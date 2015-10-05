@@ -95,6 +95,7 @@ public class SCEntityListener implements Listener
                     plugin.getStorageManager().insertKill(attacker, acp.getTag(), victim, "", "c");
                 } else if (acp.getClan().isRival(vcp.getTag()))
                 {
+                	acp.getClan().addKill(vcp.getName());
                     if (acp.getClan().isWarring(vcp.getClan()))
                     {
                         reward = (double) kdr * multipier * 4;
@@ -111,6 +112,7 @@ public class SCEntityListener implements Listener
                 {
                     reward = (double) kdr * multipier;
                     acp.addNeutralKill();
+                    acp.getClan().addKill(vcp.getName());
                     plugin.getStorageManager().insertKill(attacker, acp.getTag(), victim, vcp.getTag(), "n");
                 }
 
