@@ -100,7 +100,7 @@ public final class ClanCommandExecutor implements CommandExecutor
                 	if(commands.containsKey(subcommand.toLowerCase()))
                 	{
                 		Object obj = commands.get(subcommand.toLowerCase());
-                		obj.getClass().getMethod("execute", CommandSender.class, String[].class).invoke(obj, player, subargs);
+                		obj.getClass().getMethod("execute", Player.class, String[].class).invoke(obj, player, subargs);
                 	}
                     else
                     {

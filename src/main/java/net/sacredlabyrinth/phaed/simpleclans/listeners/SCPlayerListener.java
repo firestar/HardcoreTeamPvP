@@ -4,6 +4,8 @@ import net.sacredlabyrinth.phaed.simpleclans.ClanPlayer;
 import net.sacredlabyrinth.phaed.simpleclans.HardcoreTeamPvP;
 import net.sacredlabyrinth.phaed.simpleclans.Helper;
 import net.sacredlabyrinth.phaed.simpleclans.executors.*;
+import net.sacredlabyrinth.phaed.simpleclans.utils.HardcoreTeamUtils;
+
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -289,7 +291,9 @@ public class SCPlayerListener implements Listener
         {
             return;
         }
-
+        
+        HardcoreTeamUtils.teamColor(player);
+        
         ClanPlayer cp;
         if (HardcoreTeamPvP.getInstance().getSettingsManager().getUseBungeeCord())
         {

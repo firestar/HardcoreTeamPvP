@@ -1,6 +1,8 @@
 package net.sacredlabyrinth.phaed.simpleclans.executors;
 
 import net.sacredlabyrinth.phaed.simpleclans.*;
+import net.sacredlabyrinth.phaed.simpleclans.utils.HardcoreTeamUtils;
+
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -42,6 +44,7 @@ public class AcceptCommandExecutor implements CommandExecutor
                     if (cp.getVote() == null)
                     {
                         plugin.getRequestManager().accept(cp);
+                        HardcoreTeamUtils.teamColor(player);
                         clan.leaderAnnounce(ChatColor.GREEN + MessageFormat.format(plugin.getLang("voted.to.accept"), Helper.capitalize(player.getName())));
                     }
                     else

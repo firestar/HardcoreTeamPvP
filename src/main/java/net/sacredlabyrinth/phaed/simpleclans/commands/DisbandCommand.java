@@ -5,6 +5,7 @@ import net.sacredlabyrinth.phaed.simpleclans.Clan;
 import net.sacredlabyrinth.phaed.simpleclans.ClanPlayer;
 import net.sacredlabyrinth.phaed.simpleclans.HardcoreTeamPvP;
 import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.text.MessageFormat;
@@ -90,6 +91,35 @@ public class DisbandCommand
         else
         {
             ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(plugin.getLang("usage.0.disband"), plugin.getSettingsManager().getCommandClan()));
+        }
+    }
+    /**
+     * Execute the command
+     *
+     * @param player
+     * @param arg
+     */
+    public void execute(CommandSender sender, String[] arg)
+    {
+        HardcoreTeamPvP plugin = HardcoreTeamPvP.getInstance();
+
+        if (arg.length == 1)
+        {
+            Clan clan = plugin.getClanManager().getClan(arg[0]);
+
+            if (clan != null)
+            {
+                plugin.getClanManager().serverAnnounce(ChatColor.AQUA + MessageFormat.format(plugin.getLang("clan.has.been.disbanded"), clan.getName()));
+                clan.disband();
+            }
+            else
+            {
+                ChatBlock.sendMessage(sender, ChatColor.RED + plugin.getLang("no.clan.matched"));
+            }
+        }
+        else
+        {
+            ChatBlock.sendMessage(sender, ChatColor.RED + MessageFormat.format(plugin.getLang("usage.0.disband"), plugin.getSettingsManager().getCommandClan()));
         }
     }
 }

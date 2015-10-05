@@ -4,9 +4,15 @@ import net.sacredlabyrinth.phaed.simpleclans.executors.*;
 import net.sacredlabyrinth.phaed.simpleclans.listeners.SCEntityListener;
 import net.sacredlabyrinth.phaed.simpleclans.listeners.SCPlayerListener;
 import net.sacredlabyrinth.phaed.simpleclans.managers.*;
+import net.sacredlabyrinth.phaed.simpleclans.utils.HardcoreTeamUtils;
 import net.sacredlabyrinth.phaed.simpleclans.uuid.UUIDMigration;
+
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -111,6 +117,17 @@ public class HardcoreTeamPvP extends JavaPlugin {
         pullMessages();
         logger.info("[HardcoreTeamPvP] Modo Multithreading: " + HardcoreTeamPvP.getInstance().getSettingsManager().getUseThreads());
         logger.info("[HardcoreTeamPvP] Modo BungeeCord: " + HardcoreTeamPvP.getInstance().getSettingsManager().getUseBungeeCord());
+        
+        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
+            @Override
+            public void run() {
+            	HardcoreTeamPvP plugin = (HardcoreTeamPvP) Bukkit.getPluginManager().getPlugin("HardcoreTeamPvP");
+            	for(Player p: Bukkit.getServer().getOnlinePlayers()){
+            		HardcoreTeamUtils.teamColor(p);
+        		}
+            }
+        }, 0L, 20L);
+        
     }
 
     @Override
