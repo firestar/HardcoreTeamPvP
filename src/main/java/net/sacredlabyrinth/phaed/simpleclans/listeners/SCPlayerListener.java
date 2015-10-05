@@ -5,12 +5,8 @@ import net.sacredlabyrinth.phaed.simpleclans.ClanPlayer;
 import net.sacredlabyrinth.phaed.simpleclans.HardcoreTeamPvP;
 import net.sacredlabyrinth.phaed.simpleclans.Helper;
 import net.sacredlabyrinth.phaed.simpleclans.executors.*;
-<<<<<<< HEAD
 import net.sacredlabyrinth.phaed.simpleclans.utils.HardcoreTeamUtils;
-
-=======
 import org.bukkit.Bukkit;
->>>>>>> xtphty/master
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
