@@ -13,17 +13,21 @@ public class KickOldPlayersCountdown implements Runnable{
 	@Override
 	public void run() {
 		HardcoreTeamPvP plugin = HardcoreTeamPvP.getInstance();
-		while(true){
-			try {
-				Thread.sleep(repeatTime*60*60*1000); // sleep for 1 hour by default, then execute checks
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+		if(repeatTime!=0 && repeatTime>0){
+			while(true){
+				try {
+					Thread.sleep(repeatTime*60*60*1000); // sleep for 1 hour by default, then execute checks
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				try {
+					clanChecks(plugin);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
-			try {
-				clanChecks(plugin);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+		}else{
+			System.out.println("Lowest kill clan kick disabled ");
 		}
 	}
 	private void clanChecks(HardcoreTeamPvP plugin) throws Exception{
