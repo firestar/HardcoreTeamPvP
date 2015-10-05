@@ -1,3 +1,8 @@
+restrict.command: "restrict"
+usage.restrict: "Usage: /{0} enable/disable"
+message.restrict.enable: "Restrict to teams enabled, all solo players will be kicked."
+message.restrict.disable: "Restrict to teams disabled, solo players can connect."
+message.restrict.disallow: "You are not on an active team, wait till the next round to join."
 create.command: "create"
 list.command: "list"
 profile.command: "profile"

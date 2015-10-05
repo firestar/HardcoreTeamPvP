@@ -7,8 +7,6 @@ import org.bukkit.command.*;
 import org.bukkit.entity.Player;
 
 import java.text.MessageFormat;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author phaed
@@ -16,8 +14,48 @@ import java.util.Map;
 public final class ClanCommandExecutor implements CommandExecutor
 {
     private HardcoreTeamPvP plugin;
+    private CreateCommand createCommand;
+    private ListCommand listCommand;
+    private ProfileCommand profileCommand;
+    private RosterCommand rosterCommand;
+    private LookupCommand lookupCommand;
+    private LeaderboardCommand leaderboardCommand;
+    private AlliancesCommand alliancesCommand;
+    private RivalriesCommand rivalriesCommand;
+    private VitalsCommand vitalsCommand;
+    private CoordsCommand coordsCommand;
+    private StatsCommand statsCommand;
+    private AllyCommand allyCommand;
+    private RivalCommand rivalCommand;
+    private BbCommand bbCommand;
+    private ModtagCommand modtagCommand;
+    private ToggleCommand toggleCommand;
+    private InviteCommand inviteCommand;
+    private KickCommand kickCommand;
+    private TrustCommand trustCommand;
+    private UntrustCommand untrustCommand;
+    private PromoteCommand promoteCommand;
+    private CapeCommand capeCommand;
+    private DemoteCommand demoteCommand;
+    private ClanffCommand clanffCommand;
+    private FfCommand ffCommand;
+    private ResignCommand resignCommand;
+    private DisbandCommand disbandCommand;
+    private VerifyCommand verifyCommand;
+    private BanCommand banCommand;
+    private UnbanCommand unbanCommand;
+    private ReloadCommand reloadCommand;
+    private GlobalffCommand globalffCommand;
     private MenuCommand menuCommand;
-    private Map<String, Object> commands = new HashMap<String, Object>();
+    private WarCommand warCommand;
+    private HomeCommand homeCommand;
+    private KillsCommand killsCommand;
+    private MostKilledCommand mostKilledCommand;
+    private SetRankCommand setRankCommand;
+    private BankCommand bankCommand;
+    private PlaceCommand placeCommand;
+    private ResetKDRCommand resetKDRCommand;
+    private RestrictToClansCommand restrictToClansCommand;
 
     /**
      *
@@ -26,46 +64,47 @@ public final class ClanCommandExecutor implements CommandExecutor
     {
         plugin = HardcoreTeamPvP.getInstance();
         menuCommand = new MenuCommand();
-        commands.put(plugin.getLang("create.command").toLowerCase(), new CreateCommand());
-        commands.put(plugin.getLang("list.command").toLowerCase(), new ListCommand());
-        commands.put(plugin.getLang("bank.command").toLowerCase(), new BankCommand());
-        commands.put(plugin.getLang("profile.command").toLowerCase(), new ProfileCommand());
-        commands.put(plugin.getLang("roster.command").toLowerCase(), new RosterCommand());
-        commands.put(plugin.getLang("lookup.command").toLowerCase(), new LookupCommand());
-        commands.put(plugin.getLang("home.command").toLowerCase(), new HomeCommand());
-        commands.put(plugin.getLang("leaderboard.command").toLowerCase(), new LeaderboardCommand());
-        commands.put(plugin.getLang("alliances.command").toLowerCase(), new AlliancesCommand());
-        commands.put(plugin.getLang("rivalries.command").toLowerCase(), new RivalriesCommand());
-        commands.put(plugin.getLang("vitals.command").toLowerCase(), new VitalsCommand());
-        commands.put(plugin.getLang("coords.command").toLowerCase(), new CoordsCommand());
-        commands.put(plugin.getLang("stats.command").toLowerCase(), new StatsCommand());
-        commands.put(plugin.getLang("ally.command").toLowerCase(), new AllyCommand());
-        commands.put(plugin.getLang("rival.command").toLowerCase(), new RivalCommand());
-        commands.put(plugin.getLang("bb.command").toLowerCase(), new BbCommand());
-        commands.put(plugin.getLang("modtag.command").toLowerCase(), new ModtagCommand());
-        commands.put(plugin.getLang("toggle.command").toLowerCase(), new ToggleCommand());
-        commands.put(plugin.getLang("cape.command").toLowerCase(), new CapeCommand());
-        commands.put(plugin.getLang("invite.command").toLowerCase(), new InviteCommand());
-        commands.put(plugin.getLang("kick.command").toLowerCase(), new KickCommand());
-        commands.put(plugin.getLang("trust.command").toLowerCase(), new TrustCommand());
-        commands.put(plugin.getLang("untrust.command").toLowerCase(), new UntrustCommand());
-        commands.put(plugin.getLang("promote.command").toLowerCase(), new PromoteCommand());
-        commands.put(plugin.getLang("demote.command").toLowerCase(), new DemoteCommand());
-        commands.put(plugin.getLang("clanff.command").toLowerCase(), new ClanffCommand());
-        commands.put(plugin.getLang("ff.command").toLowerCase(), new FfCommand());
-        commands.put(plugin.getLang("resign.command").toLowerCase(), new ResignCommand());
-        commands.put(plugin.getLang("disband.command").toLowerCase(), new DisbandCommand());
-        commands.put(plugin.getLang("verify.command").toLowerCase(), new VerifyCommand());
-        commands.put(plugin.getLang("ban.command").toLowerCase(), new BanCommand());
-        commands.put(plugin.getLang("unban.command").toLowerCase(), new UnbanCommand());
-        commands.put(plugin.getLang("reload.command").toLowerCase(), new ReloadCommand());
-        commands.put(plugin.getLang("globalff.command").toLowerCase(), new GlobalffCommand());
-        commands.put(plugin.getLang("war.command").toLowerCase(), new WarCommand());
-        commands.put(plugin.getLang("kills.command").toLowerCase(), new KillsCommand());
-        commands.put(plugin.getLang("mostkilled.command").toLowerCase(), new MostKilledCommand());
-        commands.put(plugin.getLang("setrank.command").toLowerCase(), new SetRankCommand());
-        commands.put(plugin.getLang("place.command").toLowerCase(), new PlaceCommand());
-        commands.put(plugin.getLang("resetkdr.command").toLowerCase(), new ResetKDRCommand());
+        createCommand = new CreateCommand();
+        listCommand = new ListCommand();
+        profileCommand = new ProfileCommand();
+        rosterCommand = new RosterCommand();
+        lookupCommand = new LookupCommand();
+        leaderboardCommand = new LeaderboardCommand();
+        alliancesCommand = new AlliancesCommand();
+        rivalriesCommand = new RivalriesCommand();
+        vitalsCommand = new VitalsCommand();
+        coordsCommand = new CoordsCommand();
+        statsCommand = new StatsCommand();
+        allyCommand = new AllyCommand();
+        rivalCommand = new RivalCommand();
+        bbCommand = new BbCommand();
+        modtagCommand = new ModtagCommand();
+        toggleCommand = new ToggleCommand();
+        inviteCommand = new InviteCommand();
+        kickCommand = new KickCommand();
+        trustCommand = new TrustCommand();
+        untrustCommand = new UntrustCommand();
+        promoteCommand = new PromoteCommand();
+        capeCommand = new CapeCommand();
+        demoteCommand = new DemoteCommand();
+        clanffCommand = new ClanffCommand();
+        ffCommand = new FfCommand();
+        resignCommand = new ResignCommand();
+        disbandCommand = new DisbandCommand();
+        verifyCommand = new VerifyCommand();
+        banCommand = new BanCommand();
+        unbanCommand = new UnbanCommand();
+        reloadCommand = new ReloadCommand();
+        globalffCommand = new GlobalffCommand();
+        warCommand = new WarCommand();
+        homeCommand = new HomeCommand();
+        killsCommand = new KillsCommand();
+        mostKilledCommand = new MostKilledCommand();
+        setRankCommand = new SetRankCommand();
+        bankCommand = new BankCommand();
+        placeCommand = new PlaceCommand();
+        resetKDRCommand = new ResetKDRCommand();
+        restrictToClansCommand = new RestrictToClansCommand();
     }
 
     @Override
@@ -96,12 +135,180 @@ public final class ClanCommandExecutor implements CommandExecutor
                 {
                     String subcommand = args[0];
                     String[] subargs = Helper.removeFirst(args);
+<<<<<<< HEAD
                     
                 	if(commands.containsKey(subcommand.toLowerCase()))
                 	{
                 		Object obj = commands.get(subcommand.toLowerCase());
                 		obj.getClass().getMethod("execute", Player.class, String[].class).invoke(obj, player, subargs);
                 	}
+=======
+
+                    if (subcommand.equalsIgnoreCase(plugin.getLang("create.command")))
+                    {
+                        createCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("list.command")))
+                    {
+                        listCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("bank.command")))
+                    {
+                        bankCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("profile.command")))
+                    {
+                        profileCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("roster.command")))
+                    {
+                        rosterCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("lookup.command")))
+                    {
+                        lookupCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("home.command")))
+                    {
+                        homeCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("leaderboard.command")))
+                    {
+                        leaderboardCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("alliances.command")))
+                    {
+                        alliancesCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("rivalries.command")))
+                    {
+                        rivalriesCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("vitals.command")))
+                    {
+                        vitalsCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("coords.command")))
+                    {
+                        coordsCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("stats.command")))
+                    {
+                        statsCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("ally.command")))
+                    {
+                        allyCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("rival.command")))
+                    {
+                        rivalCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("bb.command")))
+                    {
+                        bbCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("modtag.command")))
+                    {
+                        modtagCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("toggle.command")))
+                    {
+                        toggleCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("cape.command")))
+                    {
+                        capeCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("invite.command")))
+                    {
+                        inviteCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("kick.command")))
+                    {
+                        kickCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("trust.command")))
+                    {
+                        trustCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("untrust.command")))
+                    {
+                        untrustCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("promote.command")))
+                    {
+                        promoteCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("demote.command")))
+                    {
+                        demoteCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("clanff.command")))
+                    {
+                        clanffCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("ff.command")))
+                    {
+                        ffCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("resign.command")))
+                    {
+                        resignCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("disband.command")))
+                    {
+                        disbandCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("verify.command")))
+                    {
+                        verifyCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("ban.command")))
+                    {
+                        banCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("unban.command")))
+                    {
+                        unbanCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("reload.command")))
+                    {
+                        reloadCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("globalff.command")))
+                    {
+                        globalffCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("war.command")))
+                    {
+                        warCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("kills.command")))
+                    {
+                        killsCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("mostkilled.command")))
+                    {
+                        mostKilledCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("setrank.command")))
+                    {
+                        setRankCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("place.command")))
+                    {
+                        placeCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("resetkdr.command")))
+                    {
+                        resetKDRCommand.execute(player, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("restrict.command")))
+                    {
+                        restrictToClansCommand.execute(player, subargs);
+                    }
+>>>>>>> xtphty/master
                     else
                     {
                         ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("does.not.match"));
@@ -119,11 +326,22 @@ public final class ClanCommandExecutor implements CommandExecutor
                     String subcommand = args[0];
                     String[] subargs = Helper.removeFirst(args);
 
-                    if(commands.containsKey(subcommand.toLowerCase()))
-                	{
-                		Object obj = commands.get(subcommand.toLowerCase());
-                		obj.getClass().getMethod("execute", CommandSender.class, String[].class).invoke(obj, sender, subargs);
-                	}
+                    if (subcommand.equalsIgnoreCase(plugin.getLang("verify.command")))
+                    {
+                        verifyCommand.execute(sender, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("reload.command")))
+                    {
+                        reloadCommand.execute(sender, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("place.command")))
+                    {
+                        placeCommand.execute(sender, subargs);
+                    }
+                    else if (subcommand.equalsIgnoreCase(plugin.getLang("restrict.command")))
+                    {
+                        restrictToClansCommand.execute(sender, subargs);
+                    }
                     else
                     {
                         ChatBlock.sendMessage(sender, ChatColor.RED + plugin.getLang("does.not.match"));
