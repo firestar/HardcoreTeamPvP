@@ -29,7 +29,7 @@ public class HardcoreTeamUtils {
 	            if (color == null) {
 	                color = board.registerNewTeam(p.getName());
 	            }
-	            color.setPrefix(clan.getColorTag()+" .:. ");
+	            color.setPrefix(String.valueOf('\u00a7')+clan.getColorTag()+" .:. ");
 	            color.addPlayer((OfflinePlayer)p);
 	            p.setScoreboard(board);
 	            staticColor = color;
