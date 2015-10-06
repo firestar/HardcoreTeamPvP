@@ -13,7 +13,7 @@ public class HardcoreTeamTasks {
 		Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
             @Override
             public void run() {
-            	HardcoreTeamPvP plugin = (HardcoreTeamPvP) Bukkit.getPluginManager().getPlugin("HardcoreTeamPvP");
+            	HardcoreTeamPvP plugin = HardcoreTeamPvP.getInstance();
             	for(Player p: Bukkit.getServer().getOnlinePlayers()){
             		HardcoreTeamUtils.teamColor(p);
         		}
@@ -24,7 +24,7 @@ public class HardcoreTeamTasks {
             public void run() {
             	Clan toKick = disbandClan;
             	if(toKick!=null){
-            		HardcoreTeamPvP plugin = (HardcoreTeamPvP) Bukkit.getPluginManager().getPlugin("HardcoreTeamPvP");
+            		HardcoreTeamPvP plugin = HardcoreTeamPvP.getInstance();
             		for(ClanPlayer p :toKick.getMembers()){
             			toKick.removeMember(p.getUniqueId());
 					}
