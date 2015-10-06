@@ -139,6 +139,7 @@ public final class SettingsManager
     private boolean forceCommandPriority;
     private int maxAsksPerRequest;
     private int clanKillInterval;
+    private int clanKillIntervalCountdown;
 
     /**
      *
@@ -295,7 +296,8 @@ public final class SettingsManager
         useThreads = getConfig().getBoolean("performance.use-threads");
         useBungeeCord = getConfig().getBoolean("performance.use-bungeecord");
         clanKillInterval = getConfig().getInt("clan.killinterval");
-
+        clanKillIntervalCountdown = getConfig().getInt("clan.killintervalcountdown");
+        
         save();
     }
 
@@ -1405,5 +1407,8 @@ public final class SettingsManager
     }
     public int getClanKillInterval(){
     	return clanKillInterval;
+    }
+    public int getClanKillIntervalCountdown(){
+    	return clanKillIntervalCountdown;
     }
 }

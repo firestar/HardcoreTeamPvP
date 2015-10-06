@@ -125,7 +125,12 @@ public class HardcoreTeamPvP extends JavaPlugin {
         
         HardcoreTeamTasks.startTasks(this);
         
-        (new Thread(new KickOldPlayersCountdown(getSettingsManager().getClanKillInterval()))).start(); // Checks clan kill count, disbands lowest kills team.
+        (new Thread(
+    		new KickOldPlayersCountdown(
+				getSettingsManager().getClanKillInterval(),
+				getSettingsManager().getClanKillIntervalCountdown()
+			)
+		)).start(); // Checks clan kill count, disbands lowest kills team.
         
     }
 

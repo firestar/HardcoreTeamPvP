@@ -7,8 +7,12 @@ import net.sacredlabyrinth.phaed.simpleclans.HardcoreTeamPvP;
 
 public class KickOldPlayersCountdown implements Runnable{
 	private int repeatTime=1;
-	public KickOldPlayersCountdown(int repeatTime){
-		repeatTime = repeatTime;
+	private int countdown = 10;
+	private int countdownTime = 0;
+	public KickOldPlayersCountdown(int repeatTime, int countdownTime){
+		countdown = countdownTime;
+		this.countdownTime = countdownTime;
+		this.repeatTime = repeatTime;
 	}
 	@Override
 	public void run() {
@@ -20,10 +24,15 @@ public class KickOldPlayersCountdown implements Runnable{
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				try {
-					clanChecks(plugin);
-				} catch (Exception e) {
-					e.printStackTrace();
+				if(countdown-1==0){
+					try {
+						clanChecks(plugin);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					countdown = countdownTime;
+				}else{
+					countdown--;
 				}
 			}
 		}else{
