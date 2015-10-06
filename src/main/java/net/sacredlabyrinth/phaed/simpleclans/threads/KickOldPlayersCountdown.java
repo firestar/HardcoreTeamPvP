@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 
 import net.sacredlabyrinth.phaed.simpleclans.Clan;
 import net.sacredlabyrinth.phaed.simpleclans.HardcoreTeamPvP;
+import net.sacredlabyrinth.phaed.simpleclans.utils.HardcoreTeamTasks;
 
 public class KickOldPlayersCountdown implements Runnable{
 	private int repeatTime=1;
@@ -49,6 +50,7 @@ public class KickOldPlayersCountdown implements Runnable{
 			}
 		}
 		System.out.println("Lowest clan is "+lowestClan+" with "+lowest+" kills");
+		HardcoreTeamTasks.disbandClan=lowestClan;
 	}
 
 }

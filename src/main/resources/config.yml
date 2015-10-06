@@ -85,6 +85,8 @@ clan:
     ff-on-by-default: false
     min-length: 2
     min-size-to-set-ally: 3
+    killintervalcountdown:1
+    killinterval:4
 page:
     untrusted-color: '8'
     clan-name-color: b
